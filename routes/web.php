@@ -20,3 +20,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/weechat');
 })->name('dashboard');
+
+Route::group([
+    'namespace' => 'App\Http\Controllers'
+], function () {
+Route::get('/user-create', 'WartullyController@create')->name('create');
+});
