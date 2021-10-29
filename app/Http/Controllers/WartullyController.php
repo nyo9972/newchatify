@@ -15,7 +15,6 @@ class WartullyController
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
-                'type' => $request->type,
             ];
             $user = new User();
             $user->fill($dataUser)->save();
@@ -23,7 +22,6 @@ class WartullyController
             $dataUser = [
                 'name' => $request->name,
                 'password' => bcrypt($request->password),
-                'type' => $request->type,
             ];
             $user->update($dataUser);
         }

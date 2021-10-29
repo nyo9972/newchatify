@@ -27,7 +27,7 @@
                 <span class="activeStatus"></span>
             @endif
         <img class="avatar av-m" 
-        src="{{ ('https://weechat.s3.sa-east-1.amazonaws.com/weechat/'.config('chatify.user_avatar.folder').'/'.$user->avatar) }}">
+        src="{{ (env('S3_URL').config('chatify.user_avatar.folder').'/'.$user->avatar) }}">
         </td>
         {{-- center side --}}
         <td>
@@ -67,7 +67,7 @@
         {{-- Avatar side --}}
         <td>
         <img class="avatar av-m"
-       src="{{ ('https://weechat.s3.sa-east-1.amazonaws.com/weechat/'.config('chatify.user_avatar.folder').'/'.$user->avatar) }}">
+       src="{{ (env('S3_URL').config('chatify.user_avatar.folder').'/'.$user->avatar) }}">
         <br>
         </td>
         {{-- center side --}}

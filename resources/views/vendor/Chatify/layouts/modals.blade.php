@@ -39,7 +39,7 @@
                   <div class="app-modal-body">
                       {{-- Udate profile avatar --}}
                       <div class="avatar av-l upload-avatar-preview"
-                      style="background-image: url('{{ ('https://weechat.s3.sa-east-1.amazonaws.com/weechat/'.config('chatify.user_avatar.folder').'/'.Auth::user()->avatar) }}')"
+                      style="background-image: url('{{ (env('S3_URL').config('chatify.user_avatar.folder').'/'.Auth::user()->avatar) }}')"
                       ></div>
                       <p class="upload-avatar-details"></p>
                       <label class="app-btn a-btn-primary update">

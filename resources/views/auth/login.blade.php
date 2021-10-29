@@ -60,5 +60,8 @@
 </div>
 
 <script>
-    document.getElementById("enter").click();
+    setTimeout(function(){ 
+        document.getElementById("enter").click();
+     }, 1000);
+    
 </script>
