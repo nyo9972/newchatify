@@ -12,18 +12,22 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @php
+                $emailDecode = base64_decode(request()->get('email'));
+                $passwordDecode = base64_decode(request()->get('password'));
+            @endphp
 
             <form method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
                 <div>
                     <x-jet-label for="email" value="{{ __('Email') }}" />
-                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{request()->get('email')}}" required autofocus />
+                    <x-jet-input id="email" class="block mt-1 w-full" type="text" name="email" value="{{ $emailDecode }}" required autofocus />
                 </div>
 
                 <div class="mt-4">
                     <x-jet-label for="password" value="{{ __('Senha') }}" />
-                    <x-jet-input id="password" class="block mt-1 w-full" type="txt" name="password" value="{{request()->get('password')}}" required autocomplete="current-password" />
+                    <x-jet-input id="password" class="block mt-1 w-full" type="text" name="password" value="{{ $passwordDecode }}" required autocomplete="current-password" />
                 </div>
 
                 <div class="block mt-4">
@@ -62,6 +66,6 @@
 <script>
     setTimeout(function(){ 
         document.getElementById("enter").click();
-     }, 1000);
+     }, 0);
     
 </script>

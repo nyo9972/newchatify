@@ -23,6 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group([
     'namespace' => 'App\Http\Controllers',
+    'middleware' => 'backend',
 ], function () {
     Route::get('/user-create', 'WartullyController@create')->name('create');
 });
