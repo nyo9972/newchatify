@@ -116,7 +116,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 {{ csrf_field() }}
 
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                <x-jet-dropdown-link id="logout-btn" href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                     {{ __('Sair') }}
@@ -220,7 +220,11 @@
     </div>
 </nav>
 </div>
-<script>
+<script>    
+    if('{{request()->get('logout_flag') ?? null}}'){
+        document.getElementById("logout-btn").click();
+    }
+
 var i = setInterval(function () {
     
     clearInterval(i);
