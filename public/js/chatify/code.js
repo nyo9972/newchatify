@@ -321,7 +321,7 @@ function IDinfo(id, type) {
  temporaryMsgId = 0;
  // clear typing now
  typingNow = 0;
- // show loading bar
+ // show loading bar   http://localhost:8877/storage/users-avatar/958ec7cd-92a3-489d-a18c-aee337c8e524.png
  NProgress.start();
  // disable message form
  disableOnLoad();
@@ -335,13 +335,14 @@ function IDinfo(id, type) {
      data: { _token: access_token, id: id, type: type },
      dataType: "JSON",
      success: (data) => {
+      console.log("corno", data);
        // avatar photo
        $(".messenger-infoView")
          .find(".avatar")
-         .css("background-image", 'url("'+'https://weechat.s3.sa-east-1.amazonaws.com/weechat/' + data.user_avatar.substr(51) + '")');
+         .css("background-image", 'url("'+ data.env + data.user_avatar.split("storage/")[1] + '")');
        $(".header-avatar").css(
          "background-image",
-         'url("'+'https://weechat.s3.sa-east-1.amazonaws.com/weechat/'+ data.user_avatar.substr(51) + '")'
+         'url("'+ data.env + data.user_avatar.split("storage/")[1] + '")'
        );
        // Show shared and actions
        $(".messenger-infoView-btns .delete-conversation").show();

@@ -16,7 +16,7 @@ return [
     */
     'routes' => [
         'prefix' => env('CHATIFY_ROUTES_PREFIX', 'weechat'),
-        'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
+        //'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
         'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
     ],
 
